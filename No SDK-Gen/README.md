@@ -35,7 +35,7 @@ The only part of this that was changed was the end of the prompt saying where th
 
 6. Asked me if I wanted to start the app on localhost
 
-6. I gave it my client id and client secret from the spotify app. It modified the server quite a bit to fulfill this request. Then it started the app for me and I could see it! It didn't work :(
+7. I gave it my client id and client secret from the spotify app. It modified the server quite a bit to fulfill this request. Then it started the app for me and I could see it! It didn't work :(
 ```
 It says "Set SPOTIFY_CLIENT_ID and SPOTIFY_CLIENT_SECRET before starting the app." 
 
@@ -44,9 +44,9 @@ id: **********
 secret: *************
 ```
 
-7. It asked if I wanted to restart the server, I said yes
+8. It asked if I wanted to restart the server, I said yes
 
-8. The whole process took about 10min
+9. The whole process took about 10min
     - 1 single server serving up the client and servicing API calls
     - Clicking on artists didn't work
     - Opening songs did
