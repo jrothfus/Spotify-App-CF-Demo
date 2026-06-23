@@ -1,0 +1,244 @@
+{
+  "endpoints": {
+    "/albums/{id}": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.albums.getAnAlbum(\n  \"4aawyAB9vmqN3uQ7FjRGTy\",\n  {\n      market: \"ES\",\n  }\n);\n\n  console.log(data);\n})();\n"
+    },
+    "/albums": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.albums.getMultipleAlbums({\n      ids: \"382ObEPsp2rxGrnsizN5TX,1A2GTWGtFfWp7KSQTwWOyo,2noRn2Aes5aoNVsU6iWThc\",\n      market: \"ES\",\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/albums/{id}/tracks": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.albums.getAnAlbumsTracks(\n  \"4aawyAB9vmqN3uQ7FjRGTy\",\n  {\n      market: \"ES\",\n      limit: 10,\n      offset: 5,\n  }\n);\n\n  console.log(data);\n})();\n"
+    },
+    "/me/albums": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.albums.getUsersSavedAlbums({\n      limit: 10,\n      offset: 5,\n      market: \"ES\",\n  });\n\n  console.log(data);\n})();\n",
+      "put": "import { SaveAlbumsUserRequest, SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  \n  const saveAlbumsUserRequest: SaveAlbumsUserRequest = {\t\n    ids: [\"ids\"]\n  };\n\n  const data = await spotifyWebApiSdk.albums.saveAlbumsUser(\n  saveAlbumsUserRequest,\n  {\n      ids: \"382ObEPsp2rxGrnsizN5TX,1A2GTWGtFfWp7KSQTwWOyo,2noRn2Aes5aoNVsU6iWThc\",\n  }\n);\n\n  console.log(data);\n})();\n",
+      "delete": "import { RemoveAlbumsUserRequest, SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  \n  const removeAlbumsUserRequest: RemoveAlbumsUserRequest = {\t\n    ids: [\"ids\"]\n  };\n\n  const data = await spotifyWebApiSdk.albums.removeAlbumsUser(\n  removeAlbumsUserRequest,\n  {\n      ids: \"382ObEPsp2rxGrnsizN5TX,1A2GTWGtFfWp7KSQTwWOyo,2noRn2Aes5aoNVsU6iWThc\",\n  }\n);\n\n  console.log(data);\n})();\n"
+    },
+    "/me/albums/contains": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.albums.checkUsersSavedAlbums({\n      ids: \"382ObEPsp2rxGrnsizN5TX,1A2GTWGtFfWp7KSQTwWOyo,2noRn2Aes5aoNVsU6iWThc\",\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/browse/new-releases": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.albums.getNewReleases({\n      limit: 10,\n      offset: 5,\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/artists/{id}": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.artists.getAnArtist(\"0TnOYISbd1XYRBk9myaseg\");\n\n  console.log(data);\n})();\n"
+    },
+    "/artists": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.artists.getMultipleArtists({\n      ids: \"2CIMQHirSU0MQqyYHq0eOx,57dN52uHvrHOxijzpIgu3E,1vCWHaC5f2uS3yhpwWbIA6\",\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/artists/{id}/albums": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.artists.getAnArtistsAlbums(\n  \"0TnOYISbd1XYRBk9myaseg\",\n  {\n      includeGroups: \"single,appears_on\",\n      market: \"ES\",\n      limit: 5,\n      offset: 5,\n  }\n);\n\n  console.log(data);\n})();\n"
+    },
+    "/artists/{id}/top-tracks": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.artists.getAnArtistsTopTracks(\n  \"0TnOYISbd1XYRBk9myaseg\",\n  {\n      market: \"ES\",\n  }\n);\n\n  console.log(data);\n})();\n"
+    },
+    "/artists/{id}/related-artists": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.artists.getAnArtistsRelatedArtists(\"0TnOYISbd1XYRBk9myaseg\");\n\n  console.log(data);\n})();\n"
+    },
+    "/shows/{id}": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.shows.getAShow(\n  \"38bS44xjbVVZ3No3ByF1dJ\",\n  {\n      market: \"ES\",\n  }\n);\n\n  console.log(data);\n})();\n"
+    },
+    "/shows": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.shows.getMultipleShows({\n      market: \"ES\",\n      ids: \"5CfCWKI5pZ28U0uOzXkDHe,5as3aKmN2k11yfDDDSrvaZ\",\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/shows/{id}/episodes": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.shows.getAShowsEpisodes(\n  \"38bS44xjbVVZ3No3ByF1dJ\",\n  {\n      market: \"ES\",\n      limit: 10,\n      offset: 5,\n  }\n);\n\n  console.log(data);\n})();\n"
+    },
+    "/me/shows": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.shows.getUsersSavedShows({\n      limit: 10,\n      offset: 5,\n  });\n\n  console.log(data);\n})();\n",
+      "put": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.shows.saveShowsUser({\n      ids: \"5CfCWKI5pZ28U0uOzXkDHe,5as3aKmN2k11yfDDDSrvaZ\",\n  });\n\n  console.log(data);\n})();\n",
+      "delete": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.shows.removeShowsUser({\n      ids: \"5CfCWKI5pZ28U0uOzXkDHe,5as3aKmN2k11yfDDDSrvaZ\",\n      market: \"ES\",\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/me/shows/contains": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.shows.checkUsersSavedShows({\n      ids: \"5CfCWKI5pZ28U0uOzXkDHe,5as3aKmN2k11yfDDDSrvaZ\",\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/episodes/{id}": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.episodes.getAnEpisode(\n  \"512ojhOuo1ktJprKbVcKyQ\",\n  {\n      market: \"ES\",\n  }\n);\n\n  console.log(data);\n})();\n"
+    },
+    "/episodes": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.episodes.getMultipleEpisodes({\n      ids: \"77o6BIVlYM3msb4MMIL1jH,0Q86acNRm6V9GYx55SXKwf\",\n      market: \"ES\",\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/me/episodes": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.episodes.getUsersSavedEpisodes({\n      market: \"ES\",\n      limit: 10,\n      offset: 5,\n  });\n\n  console.log(data);\n})();\n",
+      "put": "import { SaveEpisodesUserRequest, SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  \n  const saveEpisodesUserRequest: SaveEpisodesUserRequest = {\t\n    ids: [\"ids\"]\n  };\n\n  const data = await spotifyWebApiSdk.episodes.saveEpisodesUser(\n  saveEpisodesUserRequest,\n  {\n      ids: \"77o6BIVlYM3msb4MMIL1jH,0Q86acNRm6V9GYx55SXKwf\",\n  }\n);\n\n  console.log(data);\n})();\n",
+      "delete": "import { RemoveEpisodesUserRequest, SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  \n  const removeEpisodesUserRequest: RemoveEpisodesUserRequest = {\t\n    ids: [\"ids\"]\n  };\n\n  const data = await spotifyWebApiSdk.episodes.removeEpisodesUser(\n  removeEpisodesUserRequest,\n  {\n      ids: \"7ouMYWpwJ422jRcDASZB7P,4VqPOruhp5EdPBeR92t6lQ,2takcwOaAZWiXQijPHIx7B\",\n  }\n);\n\n  console.log(data);\n})();\n"
+    },
+    "/me/episodes/contains": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.episodes.checkUsersSavedEpisodes({\n      ids: \"77o6BIVlYM3msb4MMIL1jH,0Q86acNRm6V9GYx55SXKwf\",\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/audiobooks/{id}": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.audiobooks.getAnAudiobook(\n  \"7iHfbu1YPACw6oZPAFJtqe\",\n  {\n      market: \"ES\",\n  }\n);\n\n  console.log(data);\n})();\n"
+    },
+    "/audiobooks": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.audiobooks.getMultipleAudiobooks({\n      ids: \"18yVqkdbdRvS24c0Ilj2ci,1HGw3J3NxZO1TP1BTtVhpZ,7iHfbu1YPACw6oZPAFJtqe\",\n      market: \"ES\",\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/audiobooks/{id}/chapters": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.audiobooks.getAudiobookChapters(\n  \"7iHfbu1YPACw6oZPAFJtqe\",\n  {\n      market: \"ES\",\n      limit: 10,\n      offset: 5,\n  }\n);\n\n  console.log(data);\n})();\n"
+    },
+    "/me/audiobooks": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.audiobooks.getUsersSavedAudiobooks({\n      limit: 10,\n      offset: 5,\n  });\n\n  console.log(data);\n})();\n",
+      "put": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.audiobooks.saveAudiobooksUser({\n      ids: \"18yVqkdbdRvS24c0Ilj2ci,1HGw3J3NxZO1TP1BTtVhpZ,7iHfbu1YPACw6oZPAFJtqe\",\n  });\n\n  console.log(data);\n})();\n",
+      "delete": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.audiobooks.removeAudiobooksUser({\n      ids: \"18yVqkdbdRvS24c0Ilj2ci,1HGw3J3NxZO1TP1BTtVhpZ,7iHfbu1YPACw6oZPAFJtqe\",\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/me/audiobooks/contains": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.audiobooks.checkUsersSavedAudiobooks({\n      ids: \"18yVqkdbdRvS24c0Ilj2ci,1HGw3J3NxZO1TP1BTtVhpZ,7iHfbu1YPACw6oZPAFJtqe\",\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/chapters/{id}": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.chapters.getAChapter(\n  \"0D5wENdkdwbqlrHoaJ9g29\",\n  {\n      market: \"ES\",\n  }\n);\n\n  console.log(data);\n})();\n"
+    },
+    "/chapters": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.chapters.getSeveralChapters({\n      ids: \"0IsXVP0JmcB2adSE338GkK,3ZXb8FKZGU0EHALYX6uCzU,0D5wENdkdwbqlrHoaJ9g29\",\n      market: \"ES\",\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/tracks/{id}": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.tracks.getTrack(\n  \"11dFghVXANMlKmJXsNCbNl\",\n  {\n      market: \"ES\",\n  }\n);\n\n  console.log(data);\n})();\n"
+    },
+    "/tracks": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.tracks.getSeveralTracks({\n      market: \"ES\",\n      ids: \"7ouMYWpwJ422jRcDASZB7P,4VqPOruhp5EdPBeR92t6lQ,2takcwOaAZWiXQijPHIx7B\",\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/me/tracks": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.tracks.getUsersSavedTracks({\n      market: \"ES\",\n      limit: 10,\n      offset: 5,\n  });\n\n  console.log(data);\n})();\n",
+      "put": "import { SaveTracksUserRequest, SpotifyWebApiSdk, TimestampedIds } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  \n  const timestampedIds: TimestampedIds = {\t\n    id: \"id\",\n    addedAt: \"2023-08-30T05:25:27.275Z\"\n  };\n  \n  const saveTracksUserRequest: SaveTracksUserRequest = {\t\n    ids: [\"ids\"],\n    timestampedIds: [timestampedIds]\n  };\n\n  const data = await spotifyWebApiSdk.tracks.saveTracksUser(saveTracksUserRequest);\n\n  console.log(data);\n})();\n",
+      "delete": "import { RemoveTracksUserRequest, SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  \n  const removeTracksUserRequest: RemoveTracksUserRequest = {\t\n    ids: [\"ids\"]\n  };\n\n  const data = await spotifyWebApiSdk.tracks.removeTracksUser(\n  removeTracksUserRequest,\n  {\n      ids: \"7ouMYWpwJ422jRcDASZB7P,4VqPOruhp5EdPBeR92t6lQ,2takcwOaAZWiXQijPHIx7B\",\n  }\n);\n\n  console.log(data);\n})();\n"
+    },
+    "/me/tracks/contains": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.tracks.checkUsersSavedTracks({\n      ids: \"7ouMYWpwJ422jRcDASZB7P,4VqPOruhp5EdPBeR92t6lQ,2takcwOaAZWiXQijPHIx7B\",\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/audio-features": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.tracks.getSeveralAudioFeatures({\n      ids: \"7ouMYWpwJ422jRcDASZB7P,4VqPOruhp5EdPBeR92t6lQ,2takcwOaAZWiXQijPHIx7B\",\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/audio-features/{id}": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.tracks.getAudioFeatures(\"11dFghVXANMlKmJXsNCbNl\");\n\n  console.log(data);\n})();\n"
+    },
+    "/audio-analysis/{id}": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.tracks.getAudioAnalysis(\"11dFghVXANMlKmJXsNCbNl\");\n\n  console.log(data);\n})();\n"
+    },
+    "/recommendations": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.tracks.getRecommendations({\n      limit: 10,\n      market: \"ES\",\n      seedArtists: \"4NHQUGzhtTLFvgF5SZesLK\",\n      seedGenres: \"classical,country\",\n      seedTracks: \"0c6xIDDpzE81m2q797ordA\",\n      minAcousticness: 0.79,\n      maxAcousticness: 0.67,\n      targetAcousticness: 0.02,\n      minDanceability: 0.1,\n      maxDanceability: 0.26,\n      targetDanceability: 0.54,\n      minDurationMs: 2,\n      maxDurationMs: 10,\n      targetDurationMs: 5,\n      minEnergy: 0.26,\n      maxEnergy: 0.83,\n      targetEnergy: 0.02,\n      minInstrumentalness: 0.84,\n      maxInstrumentalness: 0.68,\n      targetInstrumentalness: 0.11,\n      minKey: 11,\n      maxKey: 2,\n      targetKey: 7,\n      minLiveness: 0.74,\n      maxLiveness: 0.01,\n      targetLiveness: 0.07,\n      minLoudness: 6.44,\n      maxLoudness: 5.74,\n      targetLoudness: 4.44,\n      minMode: 1,\n      maxMode: 123,\n      targetMode: 1,\n      minPopularity: 36,\n      maxPopularity: 92,\n      targetPopularity: 52,\n      minSpeechiness: 0.58,\n      maxSpeechiness: 0.64,\n      targetSpeechiness: 0.99,\n      minTempo: 5.36,\n      maxTempo: 0.7,\n      targetTempo: 7.26,\n      minTimeSignature: 11,\n      maxTimeSignature: 1,\n      targetTimeSignature: 8,\n      minValence: 0.2,\n      maxValence: 0.99,\n      targetValence: 0.81,\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/search": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\nconst searchType = \"album\"\nconst includeExternal = \"audio\"\n\n  const data = await spotifyWebApiSdk.search.search({\n      q: \"remaster%20track:Doxy%20artist:Miles%20Davis\",\n      type: [searchType],\n      market: \"ES\",\n      limit: 10,\n      offset: 5,\n    includeExternal: includeExternal,\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/me": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.users.getCurrentUsersProfile();\n\n  console.log(data);\n})();\n"
+    },
+    "/me/top/{type}": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\nconst getUsersTopArtistsAndTracksType = \"artists\"\n\n  const data = await spotifyWebApiSdk.users.getUsersTopArtistsAndTracks(\n  getUsersTopArtistsAndTracksType,\n  {\n      timeRange: \"medium_term\",\n      limit: 10,\n      offset: 5,\n  }\n);\n\n  console.log(data);\n})();\n"
+    },
+    "/users/{user_id}": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.users.getUsersProfile(\"smedjan\");\n\n  console.log(data);\n})();\n"
+    },
+    "/playlists/{playlist_id}/followers": {
+      "put": "import { FollowPlaylistRequest, SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  \n  const followPlaylistRequest: FollowPlaylistRequest = {\t\n    public: true\n  };\n\n  const data = await spotifyWebApiSdk.users.followPlaylist(\n  \"3cEYpjA9oz9GiPac4AsH4n\",\n  followPlaylistRequest\n);\n\n  console.log(data);\n})();\n",
+      "delete": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.users.unfollowPlaylist(\"3cEYpjA9oz9GiPac4AsH4n\");\n\n  console.log(data);\n})();\n"
+    },
+    "/me/following": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\nconst getFollowedType = \"artist\"\n\n  const data = await spotifyWebApiSdk.users.getFollowed({\n    type: getFollowedType,\n      after: \"0I2XqVXqHScXjHhk6AYYRe\",\n      limit: 10,\n  });\n\n  console.log(data);\n})();\n",
+      "put": "import { FollowArtistsUsersRequest, SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\nconst followArtistsUsersType = \"artist\"\n\n  \n  const followArtistsUsersRequest: FollowArtistsUsersRequest = {\t\n    ids: [\"ids\"]\n  };\n\n  const data = await spotifyWebApiSdk.users.followArtistsUsers(\n  followArtistsUsersRequest,\n  {\n    type: followArtistsUsersType,\n      ids: \"2CIMQHirSU0MQqyYHq0eOx,57dN52uHvrHOxijzpIgu3E,1vCWHaC5f2uS3yhpwWbIA6\",\n  }\n);\n\n  console.log(data);\n})();\n",
+      "delete": "import { SpotifyWebApiSdk, UnfollowArtistsUsersRequest } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\nconst unfollowArtistsUsersType = \"artist\"\n\n  \n  const unfollowArtistsUsersRequest: UnfollowArtistsUsersRequest = {\t\n    ids: [\"ids\"]\n  };\n\n  const data = await spotifyWebApiSdk.users.unfollowArtistsUsers(\n  unfollowArtistsUsersRequest,\n  {\n    type: unfollowArtistsUsersType,\n      ids: \"2CIMQHirSU0MQqyYHq0eOx,57dN52uHvrHOxijzpIgu3E,1vCWHaC5f2uS3yhpwWbIA6\",\n  }\n);\n\n  console.log(data);\n})();\n"
+    },
+    "/me/following/contains": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\nconst checkCurrentUserFollowsType = \"artist\"\n\n  const data = await spotifyWebApiSdk.users.checkCurrentUserFollows({\n    type: checkCurrentUserFollowsType,\n      ids: \"2CIMQHirSU0MQqyYHq0eOx,57dN52uHvrHOxijzpIgu3E,1vCWHaC5f2uS3yhpwWbIA6\",\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/playlists/{playlist_id}/followers/contains": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.users.checkIfUserFollowsPlaylist(\n  \"3cEYpjA9oz9GiPac4AsH4n\",\n  {\n      ids: \"jmperezperez\",\n  }\n);\n\n  console.log(data);\n})();\n"
+    },
+    "/playlists/{playlist_id}": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.playlists.getPlaylist(\n  \"3cEYpjA9oz9GiPac4AsH4n\",\n  {\n      market: \"ES\",\n      fields: \"items(added_by.id,track(name,href,album(name,href)))\",\n      additionalTypes: \"additional_types\",\n  }\n);\n\n  console.log(data);\n})();\n",
+      "put": "import { ChangePlaylistDetailsRequest, SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  \n  const changePlaylistDetailsRequest: ChangePlaylistDetailsRequest = {\t\n    name: \"name\",\n    public: true,\n    collaborative: true,\n    description: \"description\"\n  };\n\n  const data = await spotifyWebApiSdk.playlists.changePlaylistDetails(\n  \"3cEYpjA9oz9GiPac4AsH4n\",\n  changePlaylistDetailsRequest\n);\n\n  console.log(data);\n})();\n"
+    },
+    "/playlists/{playlist_id}/tracks": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.playlists.getPlaylistsTracks(\n  \"3cEYpjA9oz9GiPac4AsH4n\",\n  {\n      market: \"ES\",\n      fields: \"items(added_by.id,track(name,href,album(name,href)))\",\n      limit: 10,\n      offset: 5,\n      additionalTypes: \"additional_types\",\n  }\n);\n\n  console.log(data);\n})();\n",
+      "post": "import { AddTracksToPlaylistRequest, SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  \n  const addTracksToPlaylistRequest: AddTracksToPlaylistRequest = {\t\n    uris: [\"uris\"],\n    position: 4\n  };\n\n  const data = await spotifyWebApiSdk.playlists.addTracksToPlaylist(\n  \"3cEYpjA9oz9GiPac4AsH4n\",\n  addTracksToPlaylistRequest,\n  {\n      position: 10,\n      uris: \"spotify:track:4iV5W9uYEdYUVa79Axb7Rh,spotify:track:1301WleyT98MSxVHPZCA6M\",\n  }\n);\n\n  console.log(data);\n})();\n",
+      "put": "import { ReorderOrReplacePlaylistsTracksRequest, SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  \n  const reorderOrReplacePlaylistsTracksRequest: ReorderOrReplacePlaylistsTracksRequest = {\t\n    uris: [\"uris\"],\n    rangeStart: 6,\n    insertBefore: 123,\n    rangeLength: 10,\n    snapshotId: \"snapshot_id\"\n  };\n\n  const data = await spotifyWebApiSdk.playlists.reorderOrReplacePlaylistsTracks(\n  \"3cEYpjA9oz9GiPac4AsH4n\",\n  reorderOrReplacePlaylistsTracksRequest,\n  {\n      uris: \"uris\",\n  }\n);\n\n  console.log(data);\n})();\n",
+      "delete": "import { RemoveTracksPlaylistRequest, SpotifyWebApiSdk, Tracks } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  \n  const tracks: Tracks = {\t\n    uri: \"uri\"\n  };\n  \n  const removeTracksPlaylistRequest: RemoveTracksPlaylistRequest = {\t\n    tracks: [tracks],\n    snapshotId: \"snapshot_id\"\n  };\n\n  const data = await spotifyWebApiSdk.playlists.removeTracksPlaylist(\n  \"3cEYpjA9oz9GiPac4AsH4n\",\n  removeTracksPlaylistRequest\n);\n\n  console.log(data);\n})();\n"
+    },
+    "/playlists/{playlist_id}/items": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.playlists.getPlaylistsItems(\n  \"3cEYpjA9oz9GiPac4AsH4n\",\n  {\n      market: \"ES\",\n      fields: \"items(added_by.id,track(name,href,album(name,href)))\",\n      limit: 10,\n      offset: 5,\n      additionalTypes: \"additional_types\",\n  }\n);\n\n  console.log(data);\n})();\n",
+      "post": "import { AddItemsToPlaylistRequest, SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  \n  const addItemsToPlaylistRequest: AddItemsToPlaylistRequest = {\t\n    uris: [\"uris\"],\n    position: 1\n  };\n\n  const data = await spotifyWebApiSdk.playlists.addItemsToPlaylist(\n  \"3cEYpjA9oz9GiPac4AsH4n\",\n  addItemsToPlaylistRequest,\n  {\n      position: 3,\n      uris: \"spotify:track:4iV5W9uYEdYUVa79Axb7Rh,spotify:track:1301WleyT98MSxVHPZCA6M\",\n  }\n);\n\n  console.log(data);\n})();\n",
+      "put": "import { ReorderOrReplacePlaylistsItemsRequest, SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  \n  const reorderOrReplacePlaylistsItemsRequest: ReorderOrReplacePlaylistsItemsRequest = {\t\n    uris: [\"uris\"],\n    rangeStart: 4,\n    insertBefore: 1,\n    rangeLength: 5,\n    snapshotId: \"snapshot_id\"\n  };\n\n  const data = await spotifyWebApiSdk.playlists.reorderOrReplacePlaylistsItems(\n  \"3cEYpjA9oz9GiPac4AsH4n\",\n  reorderOrReplacePlaylistsItemsRequest,\n  {\n      uris: \"uris\",\n  }\n);\n\n  console.log(data);\n})();\n",
+      "delete": "import { Items, RemoveItemsPlaylistRequest, SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  \n  const items: Items = {\t\n    uri: \"uri\"\n  };\n  \n  const removeItemsPlaylistRequest: RemoveItemsPlaylistRequest = {\t\n    items: [items],\n    snapshotId: \"snapshot_id\"\n  };\n\n  const data = await spotifyWebApiSdk.playlists.removeItemsPlaylist(\n  \"3cEYpjA9oz9GiPac4AsH4n\",\n  removeItemsPlaylistRequest\n);\n\n  console.log(data);\n})();\n"
+    },
+    "/me/playlists": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.playlists.getAListOfCurrentUsersPlaylists({\n      limit: 10,\n      offset: 5,\n  });\n\n  console.log(data);\n})();\n",
+      "post": "import { CreatePlaylistRequest, SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  \n  const createPlaylistRequest: CreatePlaylistRequest = {\t\n    name: \"name\",\n    public: true,\n    collaborative: true,\n    description: \"description\"\n  };\n\n  const data = await spotifyWebApiSdk.playlists.createPlaylist(createPlaylistRequest);\n\n  console.log(data);\n})();\n"
+    },
+    "/users/{user_id}/playlists": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.playlists.getListUsersPlaylists(\n  \"smedjan\",\n  {\n      limit: 10,\n      offset: 5,\n  }\n);\n\n  console.log(data);\n})();\n",
+      "post": "import { CreatePlaylistForUserRequest, SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  \n  const createPlaylistForUserRequest: CreatePlaylistForUserRequest = {\t\n    name: \"name\",\n    public: true,\n    collaborative: true,\n    description: \"description\"\n  };\n\n  const data = await spotifyWebApiSdk.playlists.createPlaylistForUser(\n  \"smedjan\",\n  createPlaylistForUserRequest\n);\n\n  console.log(data);\n})();\n"
+    },
+    "/browse/featured-playlists": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.playlists.getFeaturedPlaylists({\n      locale: \"sv_SE\",\n      limit: 10,\n      offset: 5,\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/browse/categories/{category_id}/playlists": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.playlists.getACategoriesPlaylists(\n  \"dinner\",\n  {\n      limit: 10,\n      offset: 5,\n  }\n);\n\n  console.log(data);\n})();\n"
+    },
+    "/playlists/{playlist_id}/images": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.playlists.getPlaylistCover(\"3cEYpjA9oz9GiPac4AsH4n\");\n\n  console.log(data);\n})();\n",
+      "put": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.playlists.uploadCustomPlaylistCover(\n  \"3cEYpjA9oz9GiPac4AsH4n\",\n  new ArrayBuffer(0)\n);\n\n  console.log(data);\n})();\n"
+    },
+    "/me/library": {
+      "put": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.library.saveLibraryItems({\n      uris: \"spotify:track:7a3LWj5xSFhFRYmztS8wgK,spotify:album:4aawyAB9vmqN3uQ7FjRGTy\",\n  });\n\n  console.log(data);\n})();\n",
+      "delete": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.library.removeLibraryItems({\n      uris: \"spotify:track:7a3LWj5xSFhFRYmztS8wgK,spotify:album:4aawyAB9vmqN3uQ7FjRGTy\",\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/me/library/contains": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.library.checkLibraryContains({\n      uris: \"spotify:track:7a3LWj5xSFhFRYmztS8wgK,spotify:album:4aawyAB9vmqN3uQ7FjRGTy,spotify:artist:2takcwOaAZWiXQijPHIx7B\",\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/browse/categories": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.categories.getCategories({\n      locale: \"sv_SE\",\n      limit: 10,\n      offset: 5,\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/browse/categories/{category_id}": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.categories.getACategory(\n  \"dinner\",\n  {\n      locale: \"sv_SE\",\n  }\n);\n\n  console.log(data);\n})();\n"
+    },
+    "/recommendations/available-genre-seeds": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.genres.getRecommendationGenres();\n\n  console.log(data);\n})();\n"
+    },
+    "/me/player": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.player.getInformationAboutTheUsersCurrentPlayback({\n      market: \"ES\",\n      additionalTypes: \"additional_types\",\n  });\n\n  console.log(data);\n})();\n",
+      "put": "import { SpotifyWebApiSdk, TransferAUsersPlaybackRequest } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  \n  const transferAUsersPlaybackRequest: TransferAUsersPlaybackRequest = {\t\n    deviceIds: [\"device_ids\"],\n    play: true\n  };\n\n  const data = await spotifyWebApiSdk.player.transferAUsersPlayback(transferAUsersPlaybackRequest);\n\n  console.log(data);\n})();\n"
+    },
+    "/me/player/devices": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.player.getAUsersAvailableDevices();\n\n  console.log(data);\n})();\n"
+    },
+    "/me/player/currently-playing": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.player.getTheUsersCurrentlyPlayingTrack({\n      market: \"ES\",\n      additionalTypes: \"additional_types\",\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/me/player/play": {
+      "put": "import { SpotifyWebApiSdk, StartAUsersPlaybackRequest } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  \n  const startAUsersPlaybackRequest: StartAUsersPlaybackRequest = {\t\n    contextUri: \"context_uri\",\n    uris: [\"uris\"],\n    offset: {},\n    positionMs: 6\n  };\n\n  const data = await spotifyWebApiSdk.player.startAUsersPlayback(\n  startAUsersPlaybackRequest,\n  {\n      deviceId: \"0d1841b0976bae2a3a310dd74c0f3df354899bc8\",\n  }\n);\n\n  console.log(data);\n})();\n"
+    },
+    "/me/player/pause": {
+      "put": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.player.pauseAUsersPlayback({\n      deviceId: \"0d1841b0976bae2a3a310dd74c0f3df354899bc8\",\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/me/player/next": {
+      "post": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.player.skipUsersPlaybackToNextTrack({\n      deviceId: \"0d1841b0976bae2a3a310dd74c0f3df354899bc8\",\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/me/player/previous": {
+      "post": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.player.skipUsersPlaybackToPreviousTrack({\n      deviceId: \"0d1841b0976bae2a3a310dd74c0f3df354899bc8\",\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/me/player/seek": {
+      "put": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.player.seekToPositionInCurrentlyPlayingTrack({\n      positionMs: 25000,\n      deviceId: \"0d1841b0976bae2a3a310dd74c0f3df354899bc8\",\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/me/player/repeat": {
+      "put": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.player.setRepeatModeOnUsersPlayback({\n      state: \"context\",\n      deviceId: \"0d1841b0976bae2a3a310dd74c0f3df354899bc8\",\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/me/player/volume": {
+      "put": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.player.setVolumeForUsersPlayback({\n      volumePercent: 50,\n      deviceId: \"0d1841b0976bae2a3a310dd74c0f3df354899bc8\",\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/me/player/shuffle": {
+      "put": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.player.toggleShuffleForUsersPlayback({\n      state: true,\n      deviceId: \"0d1841b0976bae2a3a310dd74c0f3df354899bc8\",\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/me/player/recently-played": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.player.getRecentlyPlayed({\n      limit: 10,\n      after: 1484811043508,\n      before: 6,\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/me/player/queue": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.player.getQueue();\n\n  console.log(data);\n})();\n",
+      "post": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.player.addToQueue({\n      uri: \"spotify:track:4iV5W9uYEdYUVa79Axb7Rh\",\n      deviceId: \"0d1841b0976bae2a3a310dd74c0f3df354899bc8\",\n  });\n\n  console.log(data);\n})();\n"
+    },
+    "/markets": {
+      "get": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.markets.getAvailableMarkets();\n\n  console.log(data);\n})();\n"
+    },
+    "/api/token": {
+      "post": "import { OAuthTokenRequest, SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const grantType = \"authorization_code\"\n  \n  const oAuthTokenRequest: OAuthTokenRequest = {\t\n    grantType: grantType,\n    clientId: \"your_client_id\",\n    clientSecret: \"your_client_secret\",\n    scope: \"read write\"\n  };\n\n  const data = await spotifyWebApiSdk.oAuth.getAccessToken(oAuthTokenRequest);\n\n  console.log(data);\n})();\n"
+    }
+  },
+  "example": "import { SpotifyWebApiSdk } from 'spotify-web-api-sdk';\n\n(async () => {\n  const spotifyWebApiSdk = new SpotifyWebApiSdk({});\n\n  const data = await spotifyWebApiSdk.albums.getUsersSavedAlbums({\n      limit: 10,\n      offset: 5,\n      market: \"ES\",\n  });\n\n  console.log(data);\n})();\n"
+}

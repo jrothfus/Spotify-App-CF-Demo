@@ -1,0 +1,21 @@
+# PagedCategories
+
+**Properties**
+
+| Name       | Type       | Required | Description |
+| :--------- | :--------- | :------- | :---------- |
+| categories | Categories | ✅       |             |
+
+# Categories
+
+**Properties**
+
+| Name     | Type                                  | Required | Description                                                                      |
+| :------- | :------------------------------------ | :------- | :------------------------------------------------------------------------------- |
+| href     | string                                | ✅       | A link to the Web API endpoint returning the full result of the request          |
+| limit    | number                                | ✅       | The maximum number of items in the response (as set in the query or by default). |
+| next     | string                                | ✅       | URL to the next page of items. ( `null` if none)                                 |
+| offset   | number                                | ✅       | The offset of the items returned (as set in the query or by default)             |
+| previous | string                                | ✅       | URL to the previous page of items. ( `null` if none)                             |
+| total    | number                                | ✅       | The total number of items available to return.                                   |
+| items    | [CategoryObject](CategoryObject.md)[] | ✅       |                                                                                  |

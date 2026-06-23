@@ -1,0 +1,9 @@
+export type { ShowObject } from './show-object';
+export type { ShowObjectType } from './show-object-type';
+export type { SimplifiedEpisodeObject } from './simplified-episode-object';
+export type { SimplifiedEpisodeObjectReleaseDatePrecision } from './simplified-episode-object-release-date-precision';
+export type { SimplifiedEpisodeObjectType } from './simplified-episode-object-type';
+export type { ManySimplifiedShows } from './many-simplified-shows';
+export type { SimplifiedShowObjectType } from './simplified-show-object-type';
+export type { PagingSavedShowObject } from './paging-saved-show-object';
+export type { SavedShowObject } from './saved-show-object';
