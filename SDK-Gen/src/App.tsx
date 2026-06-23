@@ -119,7 +119,7 @@ function App() {
       <section className="intro">
         <div>
           <p className="eyebrow">Spotify Music Radar</p>
-          <h1>Find the artists and songs your students probably know.</h1>
+          <h1>Find songs students know.</h1>
           <p className="lede">
             Browse popular Spotify artists and tracks by release year, then jump straight into an
             artist's top songs or open a track in Spotify.
