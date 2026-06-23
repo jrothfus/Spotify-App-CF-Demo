@@ -1,0 +1,36 @@
+{
+  "name": "@spotify-app-cf-demo/spotify-sdk-ai",
+  "version": "0.1.0",
+  "description": "A hand-crafted Spotify Web API SDK designed to be highly usable by humans and AI agents.",
+  "type": "module",
+  "private": true,
+  "sideEffects": false,
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    },
+    "./operations": {
+      "types": "./src/operations.d.ts",
+      "default": "./src/operations.js"
+    }
+  },
+  "scripts": {
+    "generate": "ruby scripts/generate-sdk.rb ../../official-spotify-open-api.yml",
+    "check": "node --check src/core.js && node --check src/index.js && node --check src/operations.js && tsc --noEmit --lib es2022,dom --skipLibCheck src/index.d.ts src/operations.d.ts",
+    "test": "node test/smoke.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "spotify",
+    "sdk",
+    "web-api",
+    "ai-friendly",
+    "openapi"
+  ],
+  "license": "UNLICENSED"
+}

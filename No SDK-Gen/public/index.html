@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spotify Mentor Mix</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="toolbar" aria-label="Music browser controls">
+        <div>
+          <p class="eyebrow">Spotify Mentor Mix</p>
+          <h1>Find the songs your students are hearing everywhere.</h1>
+        </div>
+        <form id="year-form" class="year-form">
+          <label for="year-input">Year</label>
+          <div class="year-row">
+            <input id="year-input" name="year" type="number" min="1950" step="1">
+            <button type="submit">Search</button>
+            <button class="secondary" type="button" id="current-button">Current</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="status-bar" aria-live="polite">
+        <span id="status-text">Loading Spotify charts...</span>
+      </section>
+
+      <section class="content-grid">
+        <div class="panel">
+          <div class="panel-heading">
+            <div>
+              <p class="kicker">Artists</p>
+              <h2>Top Artists</h2>
+            </div>
+          </div>
+          <div id="artists-list" class="artist-grid"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-heading">
+            <div>
+              <p class="kicker">Songs</p>
+              <h2>Top Songs</h2>
+            </div>
+          </div>
+          <div id="tracks-list" class="track-list"></div>
+        </div>
+      </section>
+    </main>
+
+    <aside id="artist-drawer" class="drawer" aria-hidden="true">
+      <div class="drawer-backdrop" data-close-drawer></div>
+      <section class="drawer-panel" aria-label="Artist top tracks">
+        <button class="icon-button" type="button" data-close-drawer aria-label="Close artist tracks">x</button>
+        <div id="artist-detail"></div>
+      </section>
+    </aside>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

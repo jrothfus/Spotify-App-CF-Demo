@@ -1,0 +1,364 @@
+:root {
+  color-scheme: dark;
+  --bg: #101412;
+  --panel: #18201c;
+  --panel-strong: #202923;
+  --text: #f2f7f0;
+  --muted: #aeb9ad;
+  --line: #334139;
+  --accent: #1ed760;
+  --accent-dark: #12893e;
+  --blue: #67b7ff;
+  --rose: #ff8aa3;
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    linear-gradient(135deg, rgba(30, 215, 96, 0.14), transparent 34%),
+    linear-gradient(315deg, rgba(103, 183, 255, 0.13), transparent 32%),
+    var(--bg);
+  color: var(--text);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #08110b;
+  cursor: pointer;
+  font-weight: 800;
+  min-height: 42px;
+  padding: 0 16px;
+}
+
+button:hover {
+  background: #4ae483;
+}
+
+button.secondary {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--text);
+}
+
+button.secondary:hover,
+.artist-card:hover,
+.track-row:hover {
+  border-color: rgba(30, 215, 96, 0.78);
+}
+
+.app-shell {
+  width: min(1440px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0 48px;
+}
+
+.toolbar {
+  align-items: end;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr minmax(280px, 390px);
+  padding: 14px 0 24px;
+}
+
+.eyebrow,
+.kicker {
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(2.25rem, 7vw, 5.8rem);
+  letter-spacing: 0;
+  line-height: 0.94;
+  margin-bottom: 0;
+  max-width: 980px;
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0;
+}
+
+.year-form {
+  background: rgba(24, 32, 28, 0.78);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+.year-form label {
+  color: var(--muted);
+  display: block;
+  font-size: 0.86rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.year-row {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr auto auto;
+}
+
+input {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #0d110f;
+  color: var(--text);
+  min-height: 42px;
+  padding: 0 12px;
+}
+
+.status-bar {
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  display: flex;
+  min-height: 46px;
+  padding: 10px 0;
+}
+
+.content-grid {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: minmax(330px, 0.9fr) minmax(460px, 1.25fr);
+  padding-top: 28px;
+}
+
+.panel {
+  min-width: 0;
+}
+
+.panel-heading {
+  align-items: end;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.artist-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+}
+
+.artist-card {
+  align-items: center;
+  background: rgba(24, 32, 28, 0.82);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 64px 1fr;
+  min-height: 96px;
+  padding: 12px;
+  text-align: left;
+}
+
+.artist-card img,
+.artist-fallback {
+  aspect-ratio: 1;
+  border-radius: 6px;
+  width: 64px;
+}
+
+.artist-card img {
+  object-fit: cover;
+}
+
+.artist-fallback {
+  align-items: center;
+  background: var(--panel-strong);
+  color: var(--accent);
+  display: flex;
+  font-size: 1.4rem;
+  font-weight: 900;
+  justify-content: center;
+}
+
+.artist-card h3,
+.track-copy h3 {
+  font-size: 1rem;
+  line-height: 1.2;
+  margin: 0 0 5px;
+}
+
+.meta,
+.genre-line {
+  color: var(--muted);
+  font-size: 0.83rem;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.track-list {
+  display: grid;
+  gap: 10px;
+}
+
+.track-row {
+  align-items: center;
+  background: rgba(24, 32, 28, 0.82);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 32px 58px minmax(0, 1fr) auto;
+  min-height: 82px;
+  padding: 10px 12px;
+  text-decoration: none;
+}
+
+.rank {
+  color: var(--blue);
+  font-weight: 900;
+  text-align: right;
+}
+
+.album-art {
+  aspect-ratio: 1;
+  background: var(--panel-strong);
+  border-radius: 6px;
+  object-fit: cover;
+  width: 58px;
+}
+
+.popularity {
+  color: var(--accent);
+  font-size: 0.84rem;
+  font-weight: 900;
+  min-width: 72px;
+  text-align: right;
+}
+
+.drawer {
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  transition: opacity 160ms ease;
+  z-index: 5;
+}
+
+.drawer.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawer-backdrop {
+  background: rgba(0, 0, 0, 0.62);
+  inset: 0;
+  position: absolute;
+}
+
+.drawer-panel {
+  background: #111713;
+  border-left: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  height: 100%;
+  margin-left: auto;
+  max-width: 520px;
+  overflow: auto;
+  padding: 24px;
+  position: relative;
+  width: min(100%, 520px);
+}
+
+.icon-button {
+  align-items: center;
+  background: var(--panel-strong);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0;
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  width: 38px;
+}
+
+.artist-hero {
+  padding-right: 52px;
+}
+
+.empty-state {
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  padding: 28px;
+}
+
+@media (max-width: 900px) {
+  .toolbar,
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .toolbar {
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 560px) {
+  .app-shell {
+    width: min(100% - 20px, 1440px);
+    padding-top: 14px;
+  }
+
+  h1 {
+    font-size: 2.35rem;
+    line-height: 1;
+  }
+
+  .year-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .year-row input {
+    grid-column: 1 / -1;
+  }
+
+  .track-row {
+    grid-template-columns: 28px 50px minmax(0, 1fr);
+  }
+
+  .album-art {
+    width: 50px;
+  }
+
+  .popularity {
+    grid-column: 3;
+    text-align: left;
+  }
+}
