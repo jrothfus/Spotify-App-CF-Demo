@@ -4,7 +4,11 @@ This repo is for testing different ways to create a small Spotify app. The goal 
 
 ## Prompt
 ```
-I have trouble stayting up with current music and I want to be better about it so I can relate to the robotics students I mentor. Create a web app that I can use to look at the top spotify artists and songs. I want to be able to show these by year, by default show the current most popular but let me search by year. I want to be able to click on an artist and see their most popular tracks. Then if I click on them it opens up spotify to listen to that song.
+I have trouble stayting up with current music and I want to be better about it so I can relate 
+to the robotics students I mentor. Create a web app that I can use to look at the top spotify 
+artists and songs. I want to be able to show these by year, by default show the current most 
+popular but let me search by year. I want to be able to click on an artist and see their most 
+popular tracks. Then if I click on them it opens up spotify to listen to that song.
 ```
 
 ## Scenarios
