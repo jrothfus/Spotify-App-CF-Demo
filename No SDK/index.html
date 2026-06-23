@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spotify Yearbook</title>
+    <link rel="preconnect" href="https://i.scdn.co">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Spotify Web API</p>
+        <h1>Music Yearbook</h1>
+      </div>
+      <div class="auth-actions">
+        <button class="icon-button" id="refresh-button" type="button" title="Refresh results" aria-label="Refresh results">
+          <span aria-hidden="true">R</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="toolbar" aria-label="Filters">
+        <form id="year-form" class="year-form">
+          <label for="year-input">Year</label>
+          <input id="year-input" name="year" type="number" min="1950" max="2030" step="1" inputmode="numeric">
+          <button type="submit">Search</button>
+        </form>
+        <label class="market-control" for="market-select">
+          Market
+          <select id="market-select">
+            <option value="US">US</option>
+            <option value="CA">CA</option>
+            <option value="GB">GB</option>
+            <option value="AU">AU</option>
+            <option value="DE">DE</option>
+            <option value="FR">FR</option>
+            <option value="JP">JP</option>
+            <option value="BR">BR</option>
+            <option value="MX">MX</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="status-band" id="status-band" role="status" aria-live="polite">
+        <span id="status-text">Ready</span>
+      </section>
+
+      <section class="dashboard" aria-label="Spotify results">
+        <div class="panel tracks-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow" id="songs-kicker">Current</p>
+              <h2>Top Songs</h2>
+            </div>
+            <span class="count-pill" id="song-count">0</span>
+          </div>
+          <div class="track-list" id="track-list"></div>
+        </div>
+
+        <div class="panel artists-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow" id="artists-kicker">Current</p>
+              <h2>Top Artists</h2>
+            </div>
+            <span class="count-pill" id="artist-count">0</span>
+          </div>
+          <div class="artist-grid" id="artist-grid"></div>
+        </div>
+
+        <aside class="panel detail-panel" aria-label="Artist tracks">
+          <div class="artist-detail" id="artist-detail">
+            <div class="empty-state">
+              <p class="eyebrow">Artist Tracks</p>
+              <h2>Select an artist</h2>
+            </div>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
