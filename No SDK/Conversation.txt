@@ -1,0 +1,216 @@
+Built the Spotify web app in this folder.
+
+Added:
+
+index.html
+styles.css
+app.js
+Updated README.md
+It’s running locally at:
+
+http://localhost:8080/
+
+To use it, create/use a Spotify Developer app, add http://localhost:8080/ as a redirect URI, then paste the app’s Client ID into the connect dialog. It uses OAuth PKCE, direct Spotify HTTP API calls, year search, current-year default results, artist drilldown, and song links that open in Spotify.
+
+Verified with:
+
+node --check app.js
+curl -I http://localhost:8080/ returned 200 OK
+
+README.md
+Document · MD
+Open in
+
+Edited 4 files
++1,157
+-4
+Undo
+Review
+README.md
+app.js
+index.html
+
+Show 1 more file
+
+
+Tuesday 10:08 AM
+Lets get rid of the popup asking for my client id and redirect URI, instead here is my client ID: 6eca1d0ce592406485e8617b6efaacf9
+Tuesday 10:12 AM
+
+
+Worked for 56s
+Done. The popup is gone.
+
+Now the Connect Spotify button uses your Client ID directly from app.js, and the auth flow goes straight to Spotify. I also removed the modal HTML and cleaned up the leftover dialog CSS.
+
+Updated README setup: add http://localhost:8080/ as the redirect URI in your Spotify Developer Dashboard.
+
+Verified:
+
+node --check app.js
+Local server still returns 200 OK at http://localhost:8080/
+
+README.md
+Document · MD
+Open in
+
+Edited 4 files
++9
+-97
+Undo
+Review
+README.md
+app.js
+index.html
+
+Show 1 more file
+
+
+Tuesday 10:13 AM
+Why do we need the connect to spotify button? I thought the articts and track endpoints could be used without having to login?
+Tuesday 10:15 AM
+
+
+Worked for 18s
+The key distinction is:
+
+Spotify catalog endpoints do not require user-specific scopes, but they still require an access token.
+
+So /artists/{id}, /artists/{id}/top-tracks, and /search are not “public unauthenticated” endpoints. They can be used without permission to read your playlists/profile/library, but Spotify still requires OAuth authentication for the request.
+
+Because this app is currently static browser-only, we cannot safely use Spotify’s Client Credentials flow. That flow needs a client_secret, and putting that secret in app.js would expose it to anyone who opens DevTools.
+
+So the Connect Spotify button exists to get a browser-safe OAuth PKCE access token using only your public Client ID.
+
+Options:
+
+Keep current browser-only app
+
+Needs Connect Spotify
+No client secret exposed
+No Spotify SDK
+Remove the button entirely
+
+Add a tiny backend/serverless function
+Backend uses Client ID + Client Secret with Client Credentials
+Browser calls your backend, backend calls Spotify
+Rename the button
+
+“Authorize Spotify API” or “Load Spotify Data” may be less misleading than “Connect Spotify”
+So you were right that these are not really “login to my personal Spotify account” features. But Spotify still requires an access token, and PKCE is the safe way to get one from a static browser app.
+
+
+
+Tuesday 10:15 AM
+Ok but I only have the client id and secret. Can we use them safely?
+Tuesday 10:17 AM
+
+Yes, but not safely in a purely browser-only app.
+
+Your Client ID is safe to put in frontend code. Your Client Secret is not. If we put the secret in app.js, anyone can view it in the browser and use your Spotify app credentials.
+
+The safe setup is:
+
+Browser app -> tiny local backend -> Spotify API
+
+The backend keeps the Client Secret server-side, uses Spotify’s Client Credentials flow to get an app access token, then proxies requests for tracks/artists.
+
+For this demo, we can absolutely do that safely if you’re running it locally. I’d add something like:
+
+server.js
+.env with:
+SPOTIFY_CLIENT_ID=...
+SPOTIFY_CLIENT_SECRET=...
+frontend calls /api/search, /api/artists, /api/artists/:id/top-tracks
+no Spotify login button needed
+One important caveat: if this is deployed publicly later, you’ll want rate limiting and origin checks so people cannot freely use your backend as a Spotify proxy.
+
+I can convert this app to that backend-based version next.
+
+
+
+Tuesday 10:17 AM
+Lets do that
+Tuesday 10:19 AM
+
+
+Worked for 13m 50s
+Done. I converted it to the safer backend setup.
+
+What changed:
+
+Removed browser OAuth, PKCE, token storage, and the Connect Spotify button.
+Added server.js, a tiny Node server that:
+serves the app
+reads Spotify credentials from .env
+gets a Spotify app token using Client Credentials
+proxies only /search, /artists, and /artists/:id/top-tracks
+Added .env.example
+Added .gitignore so .env is not committed.
+Updated README.md
+The app is now running at:
+
+http://localhost:3000/
+
+You’ll need a local .env like:
+
+SPOTIFY_CLIENT_ID=6eca1d0ce592406485e8617b6efaacf9
+SPOTIFY_CLIENT_SECRET=your-real-secret
+Verified:
+
+node --check app.js
+node --check server.js
+http://localhost:3000/ returns 200 OK
+API currently returns the expected missing .env credentials message until the real secret is added.
+
+README.md
+Document · MD
+Open in
+
+Edited 6 files
++555
+-8
+Undo
+Review
+.env.example
+.gitignore
+README.md
+
+Show 3 more files
+
+
+Tuesday 10:32 AM
+Here are my credentials:
+id: 6eca1d0ce592406485e8617b6efaacf9
+secret: 2a9e7e337f914aec9ebdd1aff1ce3dd6
+Tuesday 10:34 AM
+
+
+
+Worked for 50s
+Credentials are installed locally in .env, and .env is ignored by git.
+
+I restarted the backend at:
+
+http://localhost:3000/
+
+Verification passed:
+
+Page returns 200 OK
+/api/search now returns real Spotify data
+.env does not show up in git status
+Small security note: since the secret was pasted into chat, treat it as okay for this local demo, but for anything real/public I’d rotate it in the Spotify dashboard later.
+
+
+Web preview
+Website
+Open in
+
+Edited .env
++2
+-0
+Undo
+Review
+Details
+
+

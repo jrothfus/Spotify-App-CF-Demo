@@ -1,0 +1,83 @@
+
+Built the Spotify Music Radar web app and started it locally.
+
+Open it here: http://localhost:5173
+
+What’s included:
+
+Current-year default view with year search.
+Ranked Spotify artists and tracks.
+Click an artist to load their top tracks.
+Click any track to open it in Spotify.
+Express API keeps Spotify credentials server-side and uses SDK-Gen/spotify-sdk.
+Setup note: the app is running, but Spotify data needs credentials. Add a .env from .env.example:
+
+SPOTIFY_CLIENT_ID=...
+SPOTIFY_CLIENT_SECRET=...
+Then restart with:
+
+npm run dev
+Verification: npm run build passes, the API health endpoint responds, and the Vite UI is serving successfully.
+
+
+README.md
+Document · MD
+Open in
+
+Edited 12 files
++1,247
+-11
+Undo
+Review
+.env.example
+index.html
+package.json
+
+Show 9 more files
+
+
+Tuesday 9:40 AM
+It says "Add Spotify app credentials to .env and restart the dev server." here are my credentials:
+id: 6eca1d0ce592406485e8617b6efaacf9
+secret: 2a9e7e337f914aec9ebdd1aff1ce3dd6
+Tuesday 9:41 AM
+
+
+Worked for 2m 44s
+Done. I added the credentials to local .env, added .env to a root .gitignore, restarted the API, and fixed one fetch-wrapper bug that appeared once real Spotify calls started working.
+
+The app is live at:
+
+http://localhost:5173
+
+Verified:
+
+API health says credentials are configured.
+Spotify discovery route returns real artist/track data.
+Track and artist Spotify URLs are now included.
+npm run build passes.
+Small security note: since the secret was pasted into chat, it’s worth rotating it in the Spotify Developer Dashboard before using this beyond local testing.
+
+
+Web preview
+Website
+Open in
+
+Edited 3 files
++26
+-6
+Undo
+Review
+.env
+.gitignore
+server/index.ts
+
+
+Tuesday 9:43 AM
+looks great, could you stop both servers for me?
+Tuesday 9:55 AM
+
+
+
+Worked for 29s
+Both servers are stopped. Ports 3000 and 5173 are clear.
